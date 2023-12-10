@@ -66,3 +66,9 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+# GraphQL 4fun
+gem "graphql"
+
+# GraphQL RoR integration
+gem 'graphiql-rails', group: :development
