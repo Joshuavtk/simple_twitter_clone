@@ -4,12 +4,9 @@ Rails.application.routes.draw do
   end
   post "/graphql", to: "graphql#execute"
 
-  get 'tags/index'
-  get 'tags/create'
-  get 'messages/index'
-  get 'messages/create'
-  get 'users/create'
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  resources :users
+  resources :messages
+  resources :tags
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.

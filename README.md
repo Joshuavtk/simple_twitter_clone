@@ -14,3 +14,6 @@ Simple API for twitter like application
 - [x] Het moet mogelijk zijn om meerdere tags toe te voegen en te verwijderen van een bericht.
 - [x] Het moet mogelijk zijn om een overzicht te krijgen van alle berichten van een tag
 - [x] Het moet mogelijk zijn om een overzicht te krijgen van alle tags en hoe vaak ze gebruikt worden
+
+## Postman workspace:
+https://www.postman.com/altimetry-saganist-73431606/workspace/twitter-like-app/collection/31702770-58c91889-c0c3-4731-8e3e-6ed6e5eb23cf?action=share&creator=31702770

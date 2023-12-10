@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require 'digest'
 
 module Types
   class MutationType < Types::BaseObject
@@ -6,19 +7,25 @@ module Types
     field :create_user, UserType, null: true do
       argument :user_name, String, required: true
       argument :email, String, required: true
+      argument :password, String, required: true
     end
-    def create_user(user_name:, email:)
-      User.create(user_name: user_name, email: email)
+    def create_user(user_name:, email:, password:)
+      password = Digest::MD5.hexdigest password
+      User.create(user_name: user_name, email: email, password: password)
     end
 
     field :update_user, UserType, null: true do
       argument :id, ID, required: true
       argument :user_name, String, required: false
       argument :email, String, required: false
+      argument :password, String, required: false
     end
-    def update_user(id:, user_name: nil, email: nil)
+    def update_user(id:, user_name: nil, email: nil, password: nil)
       user = User.find(id)
-      user.update(user_name: user_name || user.user_name, email: email || user.email)
+      if password
+        password = Digest::MD5.hexdigest password 
+      end
+      user.update(user_name: user_name || user.user_name, email: email || user.email, password: password || user.password)
       user
     end
 
